@@ -36,19 +36,10 @@ class Snake:
         return '%s-%s' % (self.name, self.game)
 
     def get_state(self):
-        data = self.store.get(self.get_key())
-        if data:
-            try:
-                state = pickle.loads(data)
-            except:
-                logging.error("could not load data: %s" % data)
-                state = self.base_state
-        else:
-            state = self.base_state
-        self.state = state
+        self.state = self.base_state
 
     def save_state(self):
-        self.store.set(self.get_key(), pickle.dumps(self.state))
+        return
 
     def get_distance(self, start, end):
         return sqrt(
